@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <title><%= process.env.VUE_APP_HTML_TITLE %></title>
+  <script>
+    if (!!window.ActiveXObject || "ActiveXObject" in window) {
+      alert("当前浏览器不支持，请使用360浏览器极速模式或谷歌浏览器等现代浏览器");
+    }
+  </script>
+  <script src="https://webapi.amap.com/maps?v=1.4.15&key=00e717e8ef5d85403d95f8fade2920bd&plugin=AMap.Geocoder,AMap.DistrictSearch,AMap.Weather"></script>
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_248093_unlsz3fwy.css
+"/>
+</head>
+<body>
+  <div id="app"></div>
+</body>
+</html>
