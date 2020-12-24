@@ -8,18 +8,18 @@
         </div>
         <div class="main1">
           <span>
-            <p >资产</p>
-            <p style="color: #f1523a">39,100.00</p>
+            <p>{{ data.demo1.property.name }}</p>
+            <p style="color: #f1523a">{{ formatNumber(data.demo1.property.value) }}</p>
           </span>
           <el-divider direction="vertical"></el-divider>
           <span>
-            <p>资产</p>
-            <p style="color: #14ba89">39,100.00</p>
+            <p>{{ data.demo1.liabilities.name }}</p>
+            <p style="color: #14ba89">{{formatNumber(data.demo1.liabilities.value)}}</p>
           </span>
           <el-divider direction="vertical"></el-divider>
           <span>
-            <p>资产</p>
-            <p>39,100.00</p>
+            <p>{{ data.demo1.netAsset.name }}</p>
+            <p>{{formatNumber(data.demo1.property.value - data.demo1.liabilities.value)}}</p>
           </span>
         </div>
         <div class="header2 ">
@@ -81,27 +81,33 @@
   </div>
 </template>
 <script lang="ts">
-import { ref, onMounted } from '@vue/composition-api';
+import { ref, onMounted, computed, provide, reactive } from '@vue/composition-api';
 import SingleTable from './SingleTable.vue';
 import PieChart from './PieWithScrollableLegend.vue';
 import LineChart from './BasicLineChart.vue';
 export default {
+  components:{ SingleTable, PieChart, LineChart },
   setup() {
+    const table:string = "table"
+    const data:object = require('./../../assets/data/demo1.json');
+    // 通过provide（数据名称,数据）向子组件传值
+    provide(table, data.demo1.tableData);
+
     const loading = ref<boolean>(false);
+
+
     return{
       loading,
-    };
-  },
-  components:{ SingleTable, PieChart, LineChart },
-  data(){
-    return{
       activeIndex:'',
-
-    }
+      data,
+    };
   },
 };
 </script>
 <style lang="scss" scoped>
+  [v-cloak]{
+    display: none;
+  }
   .el-container{
     margin-top: 70px;
   }

@@ -1,0 +1,35 @@
+{
+  "status": 0,
+  "demo1": {
+    "property": {
+      "name": "资产",
+      "value": 198000
+    },
+    "liabilities": {
+      "name": "负债",
+      "value": 12340
+    },
+    "netAsset": {
+      "name": "净资产"
+    },
+    "tableData": [
+      {
+        "icon":"plus-circle",
+        "text":"收入",
+        "week": "33000",
+        "month": "17000",
+        "year": "23111",
+        "value": 0
+      }, {
+        "icon":"minus-circle",
+        "text":"支出",
+        "week": "111111",
+        "month": "22313",
+        "year": "11313",
+        "value": 1
+      }
+    ]
+  }
+
+
+}
